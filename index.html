@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .header-container {
+            background-color: #800080;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .image-container {
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #800080;
+        }
+        .buttons button:hover {
+            background-color: #f0f0f0;
+        }
+        .main-container {
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px 0;
+        }
+        .column {
+            background-color: white;
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+            width: 30%; /* Ancho inicial de la columna */
+        }
+        .left-column, .right-column {
+            flex: 1; /* Las columnas izquierda y derecha ocupan el mismo espacio */
+        }
+        .center-column {
+            flex: 3; /* Hace que la columna central sea más grande */
+            max-width: 600px;
+            position: relative; /* Para posicionar el desplegable */
+        }
+        .dropdown {
+            display: none; /* Inicialmente oculto */
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            padding: 10px;
+            border-radius: 5px;
+            width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+        .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+        .has-dropdown:hover .dropdown {
+            display: block; /* Mostrar cuando se pasa el mouse sobre el elemento padre */
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="image-container">
+            <img src="C:\Users\SERVIDOR\Desktop\Departamento de Histología BUAP\240px-Escudobuappositivo2.png" alt="Imagen 1">
+        </div>
+        <div class="buttons">
+            <button>Inicio</button>
+            <button>Instructores</button>
+            <button>Nuestras redes</button>
+        </div>
+        <div class="image-container">
+            <img src="C:\Users\SERVIDOR\Desktop\Departamento de Histología BUAP\Logo a color.jpg" alt="Imagen 2">
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="column left-column">
+            <h2>Misión</h2>
+            <p>Ser un referente académico y científico en histología, impulsando el desarrollo integral de estudiantes y profesionales de la salud a través de programas educativos innovadores y colaboraciones interdisciplinarias.</p>
+        </div>
+        <div class="column center-column">
+            <h2>Índice</h2>
+            <ul>
+                <li class="has-dropdown">Técnica Histológica y microscopia
+                    <ul class="dropdown">
+                        <a href="#">Tecnica Histologica</a>
+                        <a href="#">Microscopia</a>
+                    </ul>
+                </li>
+                <li class="has-dropdown">Epitelios de revestimiento
+                    <ul class="dropdown">
+                        <a href="#">Piel</a>
+                        <a href="#">Pulmón</a>
+                        <a href="#">Riñon</a>
+                    </ul>
+                </li>
+                <li class="has-dropdown">Tejido glandular
+                    <ul class="dropdown">
+                        <a href="#">Glándula mamaria</a>
+                        <a href="#">Glándula Suprarrenal</a>
+                        <a href="#">Tiroides</a>
+                    </ul>
+                </li>
+                <li class="has-dropdown">Tejido conectivo
+                    <ul class="dropdown">
+                        <a href="#">Cartílago</a>
+                        <a href="#">Cordón umbilical</a>
+                        <a href="#">Hueso</a>
+                    </ul>
+                </li>
+                <li class="has-dropdown">Tejido Sanguíneo
+                    <ul class="dropdown">
+                        <a href="#">Tejido sanguíneo</a>
+                    </ul>
+                </li>
+                <li class="has-dropdown">Tejido Muscular
+                    <ul class="dropdown">
+                        <a href="#">Músculo esquelético</a>
+                        <a href="#">Músculo cardiaco</a>
+                        <a href="#">Músculo liso</a>
+                    </ul>
+                </li>
+                <li class="has-dropdown">Tejido Nervioso
+                    <ul class="dropdown">
+                        <a href="#">Cerebro</a>
+                        <a href="#">Cerebelo</a>
+                        <a href="#">Nervio periférico</a>
+                    </ul>
+                </li>
+                <li class="has-dropdown">Tracto digestivo 1
+                    <ul class="dropdown">
+                        <a href="#">Esófago</a>
+                        <a href="#">Estómago</a>
+                    </ul>
+                </li>
+                <li class="has-dropdown">Tracto digestivo 2
+                    <ul class="dropdown">
+                        <a href="#">Intestino delgado</a>
+                        <a href="#">Intestino Grueso</a>
+                        <a href="#">Apéndice</a>
+                    </ul>
+                </li>
+                <li class="has-dropdown">Anexos del tubo digestivo
+                    <ul class="dropdown">
+                        <a href="#">Hígado</a>
+                        <a href="#">Pancreas</a>
+                        <a href="#">Vesícula biliar</a>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="column right-column">
+            <h2>Visión</h2>
+            <p>Nuestra misión es proporcionar una educación histológica de excelencia, basada en prácticas avanzadas y tecnologías emergentes. Nos comprometemos a cultivar el conocimiento, la habilidad técnica y el pensamiento crítico entre nuestros estudiantes y la comunidad universitaria.</p>
+        </div>
+    </div>
+    <script>
+        // JavaScript opcional para el desplegable
+        const dropdownItems = document.querySelectorAll('.has-dropdown');
+
+        dropdownItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('.dropdown').style.display = 'block';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('.dropdown').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
