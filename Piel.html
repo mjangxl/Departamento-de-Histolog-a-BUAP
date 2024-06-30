@@ -48,7 +48,7 @@
             display: flex;
             gap: 20px;
         }
-        .buttons button {
+        .buttons a {
             padding: 10px 20px;
             background-color: white;
             border: none;
@@ -56,8 +56,11 @@
             cursor: pointer;
             font-size: 16px;
             color: #800080;
+            text-decoration: none; /* Quita el subrayado predeterminado de los enlaces */
+            text-align: center; /* Centra el texto en el botón */
+            display: inline-block; /* Hace que los enlaces se comporten como botones */
         }
-        .buttons button:hover {
+        .buttons a:hover {
             background-color: #f0f0f0;
         }
         .main-container {
@@ -75,18 +78,7 @@
             width: 20%; /* Ancho ajustado para la columna izquierda */
             position: relative; /* Permitir posicionamiento relativo para cuadros de texto */
         }
-        .movable-text {
-            position: absolute;
-            background-color: #fdcae1; /* Color de fondo cambiado a fdcae1 */
-            padding: 1px;
-            border-radius: 10px;
-            box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
-            cursor: move;
-            z-index: 100; /* Asegura que los cuadros de texto estén sobre otros elementos */
-            user-select: none; /* Evita la selección de texto */
-            font-size: 12px;
-        }
-        .piel-images img {
+        .laminillas-images img {
             width: 100%;
             height: auto;
             object-fit: cover;
@@ -103,6 +95,15 @@
         .histologia-resumen p {
             margin-bottom: 10px;
         }
+        .nombre {
+            position: absolute;
+            background-color: #fdcae1;
+            padding: 1px;
+            border-radius: 10px;
+            cursor: move;
+            z-index: 100;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -111,9 +112,9 @@
             <img src="240px-Escudobuappositivo2.png" alt="Imagen 1">
         </div>
         <div class="buttons">
-            <button>Inicio</button>
-            <button>Instructores</button>
-            <button>Nuestras redes</button>
+            <a href="index.html">Inicio</a>
+            <a href="#">Instructores</a>
+            <a href="#">Nuestras redes</a>
         </div>
         <div class="image-container">
             <img src="Logo a color.jpg" alt="Imagen 2">
@@ -124,41 +125,42 @@
             <h2>Estructuras</h2>
             <p>Arrastra la estructura sobre la imagen correspondiente.</p>
             <!-- Cuadros de texto movibles dentro de la columna izquierda -->
-            <div class="movable-text" style="top: 140px; left: 20px;">
+
+            <div class="nombre" id="nombre1" style="top: 140px; left: 20px;">
                 <p>Estrato basal</p>
             </div>
-            <div class="movable-text" style="top: 210px; left: 20px;">
+            <div class="nombre" id="nombre2" style="top: 210px; left: 20px;">
                 <p>Estrato espinoso</p>
             </div>
-            <div class="movable-text" style="top: 280px; left: 20px;">
+            <div class="nombre" id="nombre3" style="top: 280px; left: 20px;">
                 <p>Estrato granuloso</p>
             </div>
-            <div class="movable-text" style="top: 350px; left: 20px;">
+            <div class="nombre" id="nombre4" style="top: 350px; left: 20px;">
                 <p>Estrato corneo</p>
             </div>
-            <div class="movable-text" style="top: 600px; left: 20px;">
+            <div class="nombre" id="nombre5" style="top: 600px; left: 20px;">
                 <p>Estrato basal</p>
             </div>
-            <div class="movable-text" style="top: 670px; left: 20px;">
+            <div class="nombre" id="nombre6" style="top: 670px; left: 20px;">
                 <p>Estrato espinoso</p>
             </div>
-            <div class="movable-text" style="top: 740px; left: 20px;">
+            <div class="nombre" id="nombre7" style="top: 740px; left: 20px;">
                 <p>Estrato granuloso</p>
             </div>
-            <div class="movable-text" style="top: 810px; left: 20px;">
+            <div class="nombre" id="nombre8" style="top: 810px; left: 20px;">
                 <p>Estrato lúcido</p>
             </div>
-            <div class="movable-text" style="top: 880px; left: 20px;">
+            <div class="nombre" id="nombre9" style="top: 880px; left: 20px;">
                 <p>Estrato corneo</p>
             </div>
 
         </div>
         <div class="column" style="flex: 1; max-width: calc(80% - 20px);">
             <h2>Piel</h2>
-            <div class="piel-images">
-                <img src="Imagenes/Epitelios/Piel/Piel Delgada.jpg" alt="Imagen 1">
+            <div class="laminillas-images">
+                <img src="Imagenes\Epitelios\Piel\Piel Delgada.jpg" alt="Imagen 1">
             </div>
-            <div class="piel-images">
+            <div class="laminillas-images">
                 <img src="Imagenes/Epitelios/Piel/Piel Gruesa.jpg" alt="Imagen 2">
             </div>
             
@@ -178,29 +180,63 @@
         </div>
     </div>
 
-    <script>
-        // Script para hacer los cuadros de texto movibles
-        const movableTexts = document.querySelectorAll('.movable-text');
 
-        movableTexts.forEach(text => {
-            text.addEventListener('mousedown', function(e) {
-                let offsetX = e.clientX - text.getBoundingClientRect().left;
-                let offsetY = e.clientY - text.getBoundingClientRect().top;
+<script>
+    // Función para permitir arrastrar y soltar los cuadros de texto
+    function dragElement(elemento) {
+        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if (document.getElementById(elemento.id)) {
+            // Si se presiona el mouse dentro del cuadro de texto
+            document.getElementById(elemento.id).onmousedown = dragMouseDown;
+        } else {
+            // Si se presiona el mouse dentro del cuadro de texto
+            elemento.onmousedown = dragMouseDown;
+        }
 
-                function moveText(e) {
-                    text.style.left = e.clientX - offsetX + 'px';
-                    text.style.top = e.clientY - offsetY + 'px';
-                }
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // Obtener la posición inicial del cursor
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // Llamar a la función cuando se mueve el mouse
+            document.onmousemove = elementDrag;
+        }
 
-                function stopMove() {
-                    document.removeEventListener('mousemove', moveText);
-                    document.removeEventListener('mouseup', stopMove);
-                }
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // Calcular la nueva posición del cuadro de texto
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // Establecer la nueva posición del cuadro de texto
+            elemento.style.top = (elemento.offsetTop - pos2) + "px";
+            elemento.style.left = (elemento.offsetLeft - pos1) + "px";
+        }
 
-                document.addEventListener('mousemove', moveText);
-                document.addEventListener('mouseup', stopMove);
-            });
-        });
-    </script>
+        function closeDragElement() {
+            // Detener el movimiento cuando se suelta el mouse
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+    }
+
+    // Llamar a la función para cada cuadro de texto
+    dragElement(document.getElementById("nombre1"));
+    dragElement(document.getElementById("nombre2"));
+    dragElement(document.getElementById("nombre3"));
+    dragElement(document.getElementById("nombre4"));
+    dragElement(document.getElementById("nombre5"));
+    dragElement(document.getElementById("nombre6"));
+    dragElement(document.getElementById("nombre7"));
+    dragElement(document.getElementById("nombre8"));
+    dragElement(document.getElementById("nombre9"));
+
+
+</script>
+
 </body>
 </html>
