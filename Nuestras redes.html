@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestras redes-Departamento de Histología</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .header-container {
+            background-color: #800080;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .image-container {
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px; /* Espacio entre cada image-container */
+            max-width: 100px; /* Ancho máximo del contenedor */
+            overflow: hidden; /* Recorta cualquier contenido que se salga */
+        }
+        .image-container img {
+            max-width: 100px; /* Asegura que la imagen no sea más ancha que el contenedor */
+            height: 100px; /* Altura automática para mantener la proporción */
+            object-fit: cover; /* Ajusta la imagen manteniendo su relación de aspecto */
+            border-radius: 10px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .buttons a {
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #800080;
+            text-decoration: none; /* Quita el subrayado predeterminado de los enlaces */
+            text-align: center; /* Centra el texto en el botón */
+            display: inline-block; /* Hace que los enlaces se comporten como botones */
+        }
+        .buttons a:hover {
+            background-color: #f0f0f0;
+        }
+        .main-container {
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px 0;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            flex-wrap: wrap; /* Permite que los elementos hijos se ajusten a varias filas */
+        }
+        .img-wrapper {
+            flex: 1 1 20%; /* Cada imagen ocupa aproximadamente el 20% del ancho del contenedor principal */
+            margin: 10px; /* Margen entre las imágenes */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="image-container">
+            <img src="C:\Users\SERVIDOR\Desktop\Departamento de Histología BUAP\240px-Escudobuappositivo2.png" alt="Imagen 1">
+        </div>
+        <div class="buttons">
+            <a href="C:\Users\SERVIDOR\Desktop\Departamento de Histología BUAP\index.html">Inicio</a>
+            <a href="#">Instructores</a>
+            <a href="#">Nuestras redes</a>
+        </div>
+        <div class="image-container">
+            <img src="C:\Users\SERVIDOR\Desktop\Departamento de Histología BUAP\Logo a color.jpg" alt="Imagen 2">
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="img-wrapper">
+            <a href="https://www.instagram.com/histo.buap?igsh=MXZhcHcwZTY5Z2lweg==" target="_blank">
+                <img src="C:\Users\SERVIDOR\Desktop\Departamento de Histología BUAP\Instagram_logo_2022.svg.png" alt="Instagram">
+            </a>
+        </div>
+        <div class="img-wrapper">
+            <a href="https://www.facebook.com/histologiafmbuap?mibextid=ZbWKwL" target="_blank">
+                <img src="C:\Users\SERVIDOR\Desktop\Departamento de Histología BUAP\Facebook-Logosu.png" alt="Facebook">
+            </a>
+        </div>
+        <div class="img-wrapper">
+            <a href="https://www.tiktok.com" target="_blank">
+                <img src="C:\Users\SERVIDOR\Desktop\Departamento de Histología BUAP\tiktok-icon2.png" alt="TikTok">
+            </a>
+        </div>
+        <div class="img-wrapper">
+            <a href="https://twitter.com" target="_blank">
+                <img src="C:\Users\SERVIDOR\Desktop\Departamento de Histología BUAP\X_logo_2023_original.svg" alt="Twitter">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
